@@ -7,16 +7,15 @@ class FactureList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      factures: [],
       modalIsOpen: false,
       selectedFacture: null,
     };
   }
 
-  componentDidMount() {
-    const storedFactures = JSON.parse(localStorage.getItem('Factures')) || [];
-    this.setState({ factures: storedFactures });
-  }
+  // componentDidMount() {
+  //   const storedFactures = JSON.parse(localStorage.getItem('Factures')) || [];
+  //   this.setState({ factures: storedFactures });
+  // }
 
   openModal = (facture) => {
     this.setState({ modalIsOpen: true, selectedFacture: facture });
@@ -37,7 +36,9 @@ class FactureList extends Component {
   };
 
   render() {
-    const { factures, modalIsOpen, selectedFacture } = this.state;
+    const {  modalIsOpen, selectedFacture } = this.state;
+    const { factures } = this.props;
+    console.log("factures;", factures);
 
     return (
       <div>
@@ -59,7 +60,7 @@ class FactureList extends Component {
               return (
                 <tr key={index}>
                   <td>{facture.id}</td>
-                  <td>{facture.client.name}</td>
+                  <td>{facture.client}</td>
                   <td>{totalHT.toFixed(2)}</td>
                   <td>{tva.toFixed(2)}</td>
                   <td>{ttc.toFixed(2)}</td>

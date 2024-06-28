@@ -16,6 +16,7 @@ class AjouterDetailsFacture extends Component {
 
   render() {
     const { client, factureId, date } = this.props;
+    console.log("daata: ", client, factureId, date );
 
     return (
       <div>
@@ -26,7 +27,7 @@ class AjouterDetailsFacture extends Component {
         </div>
         <form>
         <Client onSelectClient={this.handleClientSelect}/>
-          <div className="form-group row">
+          <div className="form-group row mt-3">
             <div className="col-md-6">
               <label for="facture-id">Facture ID</label>
               <input type="text" id="facture-id" className="form-control" value={factureId} onChange={this.handleFactureIdChange}/>

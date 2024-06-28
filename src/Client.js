@@ -26,7 +26,7 @@ function Client({ onSelectClient }) {
             setShowForm(true);
         } else {
             const selectedClient = clients.find(client => client.id === parseInt(selectedClientId, 10));
-            onSelectClient(selectedClient);///////////////////////////////////////////////////////////////
+            onSelectClient(selectedClient.name);///////////////////////////////////////////////////////////////
             setShowForm(false);
         }
     };
@@ -80,7 +80,8 @@ function Client({ onSelectClient }) {
                         <label> Adresse: <input type="text" name="address" value={newClient.address} onChange={handleInputChange} required /></label>
                         <label> Téléphone: <input type="tel" name="telephone" value={newClient.telephone} onChange={handleInputChange} required /></label>
                         <label> Email: <input type="email" name="email" value={newClient.email} onChange={handleInputChange} required /></label>
-                        <button type="submit">Ajouter</button>
+                        <button type="submit" className="btn btn-primary">Ajouter</button>
+                        
                     </form>
                 </div>
             </div>
